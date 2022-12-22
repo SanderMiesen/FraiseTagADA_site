@@ -15,7 +15,7 @@ How shall one define the virality of a video ? This question definitely has many
 
 We went with the fourth definition in our work because it would pick videos mostly seen by non-subscribers. This would be explained by the fact that they were either recommended by the YouTube's algorithm or were manually searched for, which we thought was a good description of viral videos.
 
-# Exploratory Data Analysis
+# How does the data look like ?
 
 (A lot of them have virality less than one)
 
