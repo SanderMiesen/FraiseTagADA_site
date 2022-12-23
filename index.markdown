@@ -73,12 +73,17 @@ But wait, don't we have an accuracy of more than 95% ? Isn't that a super perfor
 
 We could not get better results than this one for the reasons we described above: we miss some very important factors of the video and cannot predict a video's virality only based on a few indicators.
 
-# What should you do ?
+# What should you do to become a famous YouTuber ?
 
-You learnt something while reading this datastory: that there is not a universal way to make your video go viral. Videos' virality depends on too many factors that we do not have in our datasets. Being able to make a viral video without content, just with a precise duration, category and title would disprove the Youtube's algorithm's efficiency. It is unfortunately not that simple to break it.
+Through this entire dataset analysis, we learnt that there is no magic way to make a video go viral. Videos' virality depends on too many factors that we do not have in our datasets. Being able to make a viral video without content, just with a precise duration, category and title would disprove the Youtube's algorithm's efficiency. Even with many different machine learning models, the task was simply not possible to solve precisely.
 
+Nevertheless, we still found some statistical significances between certain features of videos. In other words, there are definitely ways to *help* you make more views by tweaking certain parameters of your video. You could then try to feed it to our model to see if it has a chance of becoming viral. If it tells you it won't become viral, you can almost be sure to flp. If it tells you otherwise, you will still have a 65% chance of becoming famous !
 
-```
-This data story was brought to you by Corentin Tissier, Wissam Pheng, Sander Miesen and Pierugo Pace.
-```
+Catch your camera, start recording and make some money !
+
+<br>
+<br>
+
+*This data story was brought to you by Corentin Tissier, Wissam Pheng, Sander Miesen and Pierugo Pace.*
+
 
