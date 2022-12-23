@@ -18,7 +18,7 @@
 # You can create any custom variable you would like, and they will be accessible
 # in the templates via {{ site.myvariable }}.
 
-title: Understanding the YouTube algorithm
+title: "Understanding the YouTube algorithm"
 email: your-email@example.com
 description: >- # this means to ignore newlines until "baseurl:"
   Who does not want to have the secret of creating YouTube videos that will be viewed by thousands or millions people around the globe ? Is there a secret recipe ? Is YouTube's algorithm breakable ? Let us try to answer these questions by bringing you through this webiste.
