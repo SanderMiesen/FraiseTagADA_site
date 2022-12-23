@@ -97,7 +97,7 @@ Another factor that comes in mind is the length of videos. A common thought is t
 
 ![Video durations](Figures/durationdisplot.png)
 
-Again, we can see a clear precise mark at about 600 seconds = 10 minutes. Passing the 10-minute mark on YouTube videos is very important: they let creators put more ads on their videos. Creators thus often release videos of just about 10 minutes. It seems from the plot that viral videos are longer than non-viral ones but the following error bars tell otherwise.
+Again, we can see a clear precise mark at about 600 seconds = 10 minutes. Passing the 10-minutes mark on YouTube videos is very important: they let creators put more ads on their videos. Creators thus often release videos of just about 10 minutes. It seems from the plot that viral videos are longer than non-viral ones but the following error bars tell otherwise.
 
 ![Video durations bars](Figures/durationmean.png)
 
@@ -108,7 +108,7 @@ What about hashtags ? Does putting a lot of them help having more views ?
 
 ![Tags count](Figures/tagsdisplot.png)
 
-Definitely ! It is widely known that your videos can be seen by people that simply search for certain subjects. The data agrees ! Again, a t-test.
+Definitely ! It is widely known that your videos can be seen by people that simply search for certain subjects. The data agrees ! Again, it is proven by the following error bars.
 
 ![Tags count error bars](Figures/tagsmean.png)
 
@@ -170,25 +170,28 @@ Its results can be summarized in the following confusion matrix:
 
 ![ConfusionMatrix](Figures/confusion_matrix.png)
  
-<div style="text-align: justify">
 However, this choice should raise four questions :
 - "But wait, don't we have an accuracy of more than 95% ? Isn't that a super performance ?"  
 
+<div style="text-align: justify">
 Well yes... normally ! This metric measures how many correct samples we recognized in total. Although it may seem high, accuracy is actually not a really good metric when classes are skewed, which is our case. Since we have about 95% of negative elements and 5% of positive ones, it performs hardly better than a dumb classifier only outputting "false".
+</div>
 
 - "Random forests have a precision of 90%... Why not choose that one?"  
 
-Well, if it would have a precision of 90% and have values of the other metrics comparable to those of XGBoost, we would've obviously chosen that model. However, the reason it wasn't chosen is because it has a F1 score and recall of ...
-close to 0%. What this concretely means is that the model will only recognize "viral" videos about 0% of the time, which isn't ideal at all. 
+<div style="text-align: justify">
+Well, if it would have a precision of 90% and have values of the other metrics comparable to those of XGBoost, we would've obviously chosen that model. However, the reason it wasn't chosen is because it has a F1 score and recall of ... close to 0%. What this concretely means is that the model will only recognize "viral" videos about 0% of the time, which isn't ideal at all. 
+</div>
 
 - "Okay, so what can you concretely do with your chosen model?"  
 
-Well, we could look at the importance of the coefficients and see which ones are most important. We could also try and look at different combination of features and see if the model predicts the video to go viral. For example, we can look 
-at whether a channel with 10'000 subscribers, outputting a two minute gaming video with a 40 character long title with 3 insulting words and a whole bunch of tags in its 400 character description could have a chance to go viral. However, as
-we clearly miss some very important features, we unfortunately get very poor results when trying to predict a video's virality. 
+<div style="text-align: justify">
+Well, we could look at the importance of the coefficients and see which ones are most important. We could also try and look at different combination of features and see if the model predicts the video to go viral. For example, we can look at whether a channel with 10'000 subscribers, outputting a two minute gaming video with a 40 character long title with 3 insulting words and a whole bunch of tags in its 400 character description could have a chance to go viral. However, as we clearly miss some very important features, we unfortunately get very poor results when trying to predict a video's virality. 
+</div>
 
 - "So, if we find some kind of way to encode video content, the socio-political context and the thumbnail, we should get a great model ??"
 
+<div style="text-align: justify">
 Well, another hypothesis we have is that... there is sadly no real magic formula to make a good video. There's probably a good reason that no one managed to find a way consistently upload viral videos, which is that there isn't any ! 
 </div>
 
