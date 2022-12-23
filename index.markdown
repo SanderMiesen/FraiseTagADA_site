@@ -89,10 +89,10 @@ It is apparently the case ! We see a hardstop at 5000 characters which is the ma
 ## Number of subscribers
 Finally, does already having a lot of subscribers help make your video go viral ?
 
+# What makes a video go viral ?
+### How did we tackle this question ?
 
-# Predicting virality of new videos
-
-This is the question we are all waiting for. Long story short: we do not really know, at least with the features in our dataset.
+This is the question we are all waiting for. Long story short: we do not really know... at least with the features in our dataset. What we tried to do is train some machine learning models on features we thought any content creator could control, and see which ones really made an impact.
 
 Like we saw previously, we do not have access to major aspects of the videos, such as its thumbnail, the political context at the time of its upload date, and most importantly its actual content. It is of course very hard to say if a video will get viral if we do not know the content of it ! Viral videos often need to connect people, to be emotionally strong or funny ; but we do not have access to these details. Thus, we can only tell if a video will get viral based on:
  - Its category (Music, Gaming, Politics, Sports,...)
@@ -100,26 +100,42 @@ Like we saw previously, we do not have access to major aspects of the videos, su
  - Its duration
  - Its title's and description's lengths
  - Its number of tags
- - If the title is rather positive or negative
+ - How many positive and negative words the title contains
 
-These features were the ones we selected to build our model. After having tried a few ones, the most promising one was a XGBoost model. The results can be summarized in the following confusion matrix:
+These features were the ones we selected to build our model. We tried a few different models including logistic regression, random forests and XGBoost.
+We first split the total dataset into train and test sets, and then trained the models on the train set using some cross-validation to find the best hyper-parameters (like the number of trees for example). 
 
-<p align="center">
-    <img src="Figures/confusion_matrix.png" alt="Confusion Matrix" width="500"/>
-</p>
+### The results and best model 
+The results we got are summarized in the following table :
 
-- Accuracy : 95%
-- Precision : 65%
-- Recall : 5%
-- F1-Score : 9%
+![ConfusionMatrix](Figures/Performance_models.png)
 
 Having a precision of 65% means that you have a 65% chance of your video getting viral if our model says it does.  
 Having a recall of 5% means that our model will recognize 5% of viral videos as such.  
-In this context, we prefer having a more conservative model that will prioritize precision over recall. When our model predicts a video as viral, we want that our video actually gets viral with the highest probability. This led our model to tell that our video gets viral only if it is REALLY viral.
+When our model predicts a video as viral, we want our video to actually go viral with the highest probability. Therefore, we prefer having a more conservative model that will prioritize precision over recall. XGBoost has a pretty good precision, which is why we chose it.
+Its results can be summarized in the following confusion matrix:
 
-But wait, don't we have an accuracy of more than 95% ? Isn't that a super performance ? This metric measures how many correct samples we recognized in total. Although it may seem high, accuracy is actually not a really good metric when classes are skewed, which is our case. Since we have about 95% of negative elements and 5% of positive ones, it performs hardly better than a dumb classifier only outputting "false".
+![ConfusionMatrix](Figures/confusion_matrix.png)
+ 
+However, this choice should raise four questions :
+- "But wait, don't we have an accuracy of more than 95% ? Isn't that a super performance ?"  
 
-We could not get better results than this one for the reasons we described above: we miss some very important factors of the video and cannot predict a video's virality only based on a few indicators.
+Well yes... normally ! This metric measures how many correct samples we recognized in total. Although it may seem high, accuracy is actually not a really good metric when classes are skewed, which is our case. Since we have about 95% of negative elements and 5% of positive ones, it performs hardly better than a dumb classifier only outputting "false".
+
+- "Random forests have a precision of 90%... Why not choose that one?"  
+
+Well, if it would have a precision of 90% and have values of the other metrics comparable to those of XGBoost, we would've obviously chosen that model. However, the reason it wasn't chosen is because it has a F1 score and recall of ...
+close to 0%. What this concretely means is that the model will only recognize "viral" videos about 0% of the time, which isn't ideal at all. 
+
+- "Okay, so what can you concretely do with your chosen model?"  
+
+Well, we could look at the importance of the coefficients and see which ones are most important. We could also try and look at different combination of features and see if the model predicts the video to go viral. For example, we can look 
+at whether a channel with 10'000 subscribers, outputting a two minute gaming video with a 40 character long title with 3 insulting words and a whole bunch of tags in its 400 character description could have a chance to go viral. However, as
+we clearly miss some very important features, we unfortunately get very poor results when trying to predict a video's virality. 
+
+- "So, if we find some kind of way to encode video content, the socio-political context and the thumbnail, we should get a great model ??"
+
+Well, another hypothesis we have is that... there is sadly no real magic formula to make a good video. There's probably a good reason that no one managed to find a way consistently upload viral videos, which is that there isn't any ! 
 
 # What should you do to become a famous YouTuber ?
 
