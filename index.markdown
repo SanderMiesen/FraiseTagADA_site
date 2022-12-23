@@ -29,11 +29,11 @@ Features: duration, category, title, description, etc
 
 We first had a look at the titles, as it is one of the first elements that we notice when seeing a video on Youtube. After some data cleaning (ponctuation, links, tokenisation, stopwords...) we have obtained for the non viral sample the following word cloud:
 
-![Wordcloud1](Figures/titlewordcloud.png)
+![Wordcloud1](Figures/titlewordcloud3.png)
 
 and for the viral sample, we got:
 
-![Wordcloud2](Figures/title_wordcloud_viral.png)
+![Wordcloud2](Figures/title_wordcloud_viral3.png)
 
 Hum they look very similar... This is because some words like 'video','part', 'new' or 'episode' are very often used in youtube title and are not very specific. To circumvent this issue, we have repeated the same process but without the intersection of the top 200 words from the viral sample and the non viral sample. This way we get for the non viral sample:
 
