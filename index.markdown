@@ -17,7 +17,7 @@ We went with the fourth definition in our work because it would pick videos most
 
 More specifically, our decision function is as follows:
 
-$$\left(1 - \exp \left(-\frac{\log(views + 1)}{\log(subcribers + 1)} \right) + 0.055*\log_{10}(subscribers + 1) - 0.05 \right)^2.1 \geq threshold $$
+$$\left(1 - \exp \left(-\frac{\log(views + 1)}{\log(subcribers + 1)} \right) + 0.055*\log_{10}(subscribers + 1) - 0.05 \right)^{2.1} \geq threshold $$
 
 The details of how and why our function looks like this will be omitted for clarity purposes. Videos that satisfy this inequality will be tagged as viral. The value for $threshold$ was chosen so that we had a satisfiable rate of viral videos compared to non-viral ones. In our case, we chose $threshold$ as the 95%-quantile. Thus, 5% of the videos in the dataset are viral, the others are not.
 Note that due to limited computational resources, we had to work only on a subset of the total videos. 
@@ -61,11 +61,11 @@ These features were the ones we selected to build our model. After having tried 
 [Insert confusion matrix]
 
 - Accuracy : 95%
-- Precision : 67%
+- Precision : 65%
 - Recall : 5%
-- F1-Score : 10%
+- F1-Score : 9%
 
-Having a precision of 67% means that you have a 67% chance of your video getting viral if our model says it does.  
+Having a precision of 65% means that you have a 65% chance of your video getting viral if our model says it does.  
 Having a recall of 5% means that our model will recognize 5% of viral videos as such.  
 In this context, we prefer having a more conservative model that will prioritize precision over recall. When our model predicts a video as viral, we want that our video actually gets viral with the highest probability. This led our model to tell that our video gets viral only if it is REALLY viral.
 
