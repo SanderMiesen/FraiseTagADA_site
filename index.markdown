@@ -21,6 +21,7 @@ Features: duration, category, title, description, etc
 (A lot of them have virality less than one)
 
 ![Wordcloud]([https://github.com/SanderMiesen/FraiseTagADA_site/Figures/title_wordcloud.png])
+![Octocat](https://github.githubassets.com/images/icons/emoji/octocat.png)
 
 # What makes a video viral ?
 
