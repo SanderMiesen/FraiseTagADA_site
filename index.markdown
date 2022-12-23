@@ -17,7 +17,7 @@ We went with the fourth definition in our work because it would pick videos most
 
 More specifically, our decision function is as follows:
 
-$$\left(1 - \exp \left(-\frac{\log(views + 1)}{\log(subcribers + 1)} \right) + 0.055*\log_{10}(subscribers + 1) - 0.05 \right)^{2.1} \geq threshold $$
+![LaTeX Equation](Figures/latex_equation.png)
 
 The details of how and why our function looks like this will be omitted for clarity purposes. Videos that satisfy this inequality will be tagged as viral. The value for $threshold$ was chosen so that we had a satisfiable rate of viral videos compared to non-viral ones. In our case, we chose $threshold$ as the 95%-quantile. Thus, 5% of the videos in the dataset are viral, the others are not.
 Note that due to limited computational resources, we had to work only on a subset of the total videos. 
