@@ -1,6 +1,7 @@
 ---
 layout: default
 ---
+
 # What is a viral video ?
 
 Our ultimate goal being to find outlier videos that made more views than others, we first have to define what makes a video viral. This question definitely has many possible answers as many factors come into play. Here are a few of them: 
@@ -17,7 +18,8 @@ Let’s first define some logic requirement :
 - Doing as many views as smaller channel is not considered equal success. Virality must decreases with subscribers.
 - You must always have a chance to make a viral video, the standards will simply not be the same.
 
-From the distributions of the number of views and number of subscribers we want to use log(views+1) and log(subs+1) transformations, so our first attempt will be the ratio ![ratio](Figures/ratio.PNG).
+From the distributions of the number of views and number of subscribers we want to use log(views+1) and log(subs+1) transformations, so our first attempt will be the ratio <img src="Figures/ratio.PNG" alt="ratio" width="100"/>.
+
 
 ![Virality0](Figures/virality0.png)
 
