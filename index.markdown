@@ -138,6 +138,12 @@ From this distribution we may have the impression that non-viral videos have mor
 We can definitely see that the subscribers' mean is way higher in viral videos. In fact, this is explained by outliers which are not shown on the plot.
 </div>
 
+### A few correlations between features
+
+![Correlations](Figures/CorrelationHeatmap.png)
+
+Here a correlation heat map which shows that the features that we talked about above are not correlated with each other. We can thus use all of them for our classification model.
+
 # Predicting virality of new videos
 ### How did we tackle this question ?
 
