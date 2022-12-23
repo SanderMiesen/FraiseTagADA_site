@@ -61,11 +61,11 @@ These features were the ones we selected to build our model. After having tried 
 [Insert confusion matrix]
 
 - Accuracy : 95%
-- Precision : 67%
+- Precision : 65%
 - Recall : 5%
-- F1-Score : 10%
+- F1-Score : 9%
 
-Having a precision of 67% means that you have a 67% chance of your video getting viral if our model says it does.  
+Having a precision of 65% means that you have a 65% chance of your video getting viral if our model says it does.  
 Having a recall of 5% means that our model will recognize 5% of viral videos as such.  
 In this context, we prefer having a more conservative model that will prioritize precision over recall. When our model predicts a video as viral, we want that our video actually gets viral with the highest probability. This led our model to tell that our video gets viral only if it is REALLY viral.
 
