@@ -20,7 +20,7 @@ We went with the fourth definition in our work because it would pick videos most
 Features: duration, category, title, description, etc
 (A lot of them have virality less than one)
 
-![Wordcloud]([https://github.com/epfl-ada/ada-2022-project-fraisetagadaofficial/blob/main/Figures/title-wordcloud.png])
+![Wordcloud](Figures/title-wordcloud.png)
 ![Octocat](https://github.githubassets.com/images/icons/emoji/octocat.png)
 
 # What makes a video viral ?
