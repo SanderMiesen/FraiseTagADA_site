@@ -1,5 +1,7 @@
 ---
 layout: default
+title: "Who does not want to have the secret of creating YouTube videos that will be viewed by thousands or millions people around the globe ? Is there a secret recipe ? Is YouTube's algorithm breakable ? Let us try to answer these questions by bringing you through this website."
+
 ---
 
 # What is a viral video ?
@@ -53,10 +55,7 @@ We first had a look at the titles, as it is one of the first elements that we no
 
 ![Title lengths](Figures/titledisplot.png)
 
-A first remark is that title lengths cannot be longer than 100 characters, as we can see on the plot above. We see a trend for viral videos to be a bit shorter than non-viral ones. This is more rigourously compared with the following t-test:
-
-
-!!!
+A first remark is that title lengths cannot be longer than 100 characters, as we can see on the plot above. We see a trend for viral videos to be a bit shorter than non-viral ones.
 
 
 Next, we can form word clouds for both of them. For the non viral sample, we got the following one:
