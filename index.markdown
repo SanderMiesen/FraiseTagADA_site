@@ -20,8 +20,13 @@ We went with the fourth definition in our work because it would pick videos most
 Features: duration, category, title, description, etc
 (A lot of them have virality less than one)
 
+We first had a look at the titles, as it is the first element (with the thumbnail that we do not have access to) that we notice when seeing a video on Youtube. After some data cleaning (ponctuation, links, tokenisation, stopwords...) we obtained the following Word Cloud for the whole sample:
 ![Wordcloud1](Figures/title-wordcloud.png)
+
+and uniquely using the titles from the viral videos, we got:
 ![Wordcloud2](Figures/title_wordcloud_viral.png)
+
+As
 
 # What makes a video viral ?
 
