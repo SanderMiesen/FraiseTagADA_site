@@ -109,7 +109,7 @@ Finally, does already having a lot of subscribers help make your video go viral 
 
 ![Subscribers count](Figures/subsdisplot.png)
 
-From this distribution
+From this distribution we may have the impression that non-viral videos have more subscribers. But in fact, viral videos have a higher mean of number of subscribers because of outliers not shown on the plot. The t-test confirms this.
 
 # Predicting virality of new videos
 ### How did we tackle this question ?
