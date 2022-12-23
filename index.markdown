@@ -43,6 +43,7 @@ and for the viral sample:
 
 ![Wordcloud4](Figures/title_wordcloud_viral2.png)
 
+Fron this, we can see that frequent words specific to the viral sample include trendy topics such as 'prank', 'asmr', 'slime' or 'roblox'. It is not surprising to see words as 'lyrics', 'hit' or 'rhymes' which are related to music videos subject to be watched many times by the same viewers. 
 # What makes a video viral ?
 
 This is the question we are all waiting for. Long story short: we do not really know, at least with the features in our dataset.
