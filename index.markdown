@@ -40,12 +40,17 @@ Like we saw previously, we do not have access to major aspects of the videos, su
  - Its number of tags
  - If the title is rather positive or negative
 
-These features were the ones we selected to build our model. After having tried a few ones, the most promising one was [...]
+These features were the ones we selected to build our model. After having tried a few ones, the most promising one was a XGBoost model. The results can be summarized in the following confusion matrix:
 
-[Insert precision matrix]
+[Insert confusion matrix]
 
-Having a precision of [...] means that you have a [x]% chance of your video getting viral if our model says it does.  
-Having a recall of [...] means that our model will recognize [x]% of viral videos as such.  
+- Accuracy : 95%
+- Precision : 67%
+- Recall : 5%
+- F1-Score : 10%
+
+Having a precision of 67% means that you have a 67% chance of your video getting viral if our model says it does.  
+Having a recall of 5% means that our model will recognize 5% of viral videos as such.  
 In this context, we prefer having a more conservative model that will prioritize precision over recall. When our model predicts a video as viral, we want that our video actually gets viral with the highest probability. This led our model to tell that our video gets viral only if it is REALLY viral.
 
 But wait, don't we have an accuracy of more than 95% ? Isn't that a super performance ? This metric measures how many correct samples we recognized in total. Although it may seem high, accuracy is actually not a really good metric when classes are skewed, which is our case. Since we have about 95% of negative elements and 5% of positive ones, it performs hardly better than a dumb classifier only outputting "false".
