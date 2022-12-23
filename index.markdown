@@ -29,20 +29,21 @@ Features: duration, category, title, description, etc
 
 We first had a look at the titles, as it is one of the first elements that we notice when seeing a video on Youtube. After some data cleaning (ponctuation, links, tokenisation, stopwords...) we have obtained for the non viral sample the following word cloud:
 
-![Wordcloud1](Figures/titlewordcloud.png)
+![Wordcloud1](Figures/title_wordcloud3.png)
 
 and for the viral sample, we got:
 
-![Wordcloud2](Figures/title_wordcloud_viral.png)
+![Wordcloud2](Figures/title_wordcloud_viral3.png)
 
 Hum they look very similar... This is because some words like 'video','part', 'new' or 'episode' are very often used in youtube title and are not very specific. To circumvent this issue, we have repeated the same process but without the intersection of the top 200 words from the viral sample and the non viral sample. This way we get for the non viral sample:
 
-![Wordcloud3](Figures/titlewordcloud2.png)
+![Wordcloud3](Figures/title_wordcloud2.png)
 
 and for the viral sample:
 
 ![Wordcloud4](Figures/title_wordcloud_viral2.png)
 
+Fron this, we can see that frequent words specific to the viral sample include trendy topics such as 'prank', 'asmr', 'slime' or 'roblox'. It is not surprising to see words as 'lyrics', 'hit' or 'rhymes' which are related to music videos subject to be watched many times by the same viewers. 
 # What makes a video viral ?
 
 This is the question we are all waiting for. Long story short: we do not really know, at least with the features in our dataset.
