@@ -1,7 +1,6 @@
 ---
 layout: default
-title: "Who does not want to have the secret of creating YouTube videos that will be viewed by thousands or millions people around the globe ? Is there a secret recipe ? Is YouTube's algorithm breakable ? Let us try to answer these questions by bringing you through this website."
-
+title: "Understanding the YouTube algorithm"
 ---
 
 # What is a viral video ?
@@ -55,8 +54,7 @@ We first had a look at the titles, as it is one of the first elements that we no
 
 ![Title lengths](Figures/titledisplot.png)
 
-A first remark is that title lengths cannot be longer than 100 characters, as we can see on the plot above. We see a trend for viral videos to be a bit shorter than non-viral ones.
-
+A first remark is that title lengths cannot be longer than 100 characters, as we can see on the plot above. We see a trend for viral videos to be a bit shorter than non-viral ones. The difference between the two means are not statistically significant though.
 
 Next, we can form word clouds for both of them. For the non viral sample, we got the following one:
 
@@ -81,11 +79,11 @@ Another factor that comes in mind is the length of videos. A common thought is t
 
 ![Video durations](Figures/durationdisplot.png)
 
-Again, we can see a clear precise mark at about 600 seconds = 10 minutes. Passing the 10-minute mark on YouTube videos is very important: they let creators put more ads on their videos. Creators thus often release videos of just about 10 minutes.
+Again, we can see a clear precise mark at about 600 seconds = 10 minutes. Passing the 10-minute mark on YouTube videos is very important: they let creators put more ads on their videos. Creators thus often release videos of just about 10 minutes. It seems from the plot that viral videos are longer than non-viral ones but the following error bars tell otherwise.
 
+![Video durations bars](Figures/durationmeans.png)
 
-!!!
-
+Non-viral videos are in reality shorter because there are some exceptionally long outliers which increase the average durations of videos.
 
 ## Tags count
 What about hashtags ? Does putting a lot of them help having more views ?
@@ -94,7 +92,7 @@ What about hashtags ? Does putting a lot of them help having more views ?
 
 Definitely ! It is widely known that your videos can be seen by people that simply search for certain subjects. The data agrees ! Again, a t-test.
 
-!!!
+![Tags count error bars](Figures/tagsmean.png)
 
 ## Description length
 Is it useful to write huge descriptions to gain more views ? 
@@ -103,14 +101,20 @@ Is it useful to write huge descriptions to gain more views ?
 
 It is apparently the case ! We see a hardstop at 5000 characters which is the maximum length of descriptions on YouTube. We definitely see that viral videos have longer descriptions, proven again with this test:
 
-!!!
+![Description lengths error bars](Figures/descriptionmean.png)
+
+We recommend providing a precise description of your video if you want to increase views !
 
 ## Number of subscribers
 Finally, does already having a lot of subscribers help make your video go viral ?
 
 ![Subscribers count](Figures/subsdisplot.png)
 
-From this distribution we may have the impression that non-viral videos have more subscribers. But in fact, viral videos have a higher mean of number of subscribers because of outliers not shown on the plot. The t-test confirms this.
+From this distribution we may have the impression that non-viral videos have more subscribers. But change your mind looking at the following error bars:
+
+![Subscribers error bars](Figures/subsmean.png)
+
+We can definitely see that the subscribers' mean is way higher in viral videos. In fact, this is explained by outliers which are not shown on the plot.
 
 # Predicting virality of new videos
 ### How did we tackle this question ?
