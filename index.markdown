@@ -16,12 +16,12 @@ Our ultimate goal being to find outlier videos that made more views than others,
 
 <div style="text-align: justify">
 We went with the fourth definition in our work because it would pick videos mostly seen by non-subscribers. This would be explained by the fact that they were either recommended by the YouTube’s algorithm or were manually searched for, which we thought was a good description of viral videos. Here are more mathematical details on the way virality was defined.  
-Let’s first define some logic requirement :
+Let’s first define some logic requirements :
 </div>
 
 - The more views it gets, the more the video is viral.
 - Doing as many views as smaller channel is not considered equal success. Virality must decrease with subscribers.
-- So that even big channels can have a chance to have a video go viral.
+- Big channels should also have a chance to have a video go viral.
 
 <div style="text-align: justify">
 From the distributions of the number of views and number of subscribers we want to use log(views+1) and log(subs+1) transformations, so our first attempt will be the ratio <img src="Figures/ratio.PNG" alt="ratio" width="100"/>.
@@ -176,18 +176,21 @@ However, this choice should raise four questions :
 <div style="text-align: justify">
 Well yes... normally ! This metric measures how many correct samples we recognized in total. Although it may seem high, accuracy is actually not a really good metric when classes are skewed, which is our case. Since we have about 95% of negative elements and 5% of positive ones, it performs hardly better than a dumb classifier only outputting "false".
 </div>
+<br>
 
 - "Random forests have a precision of 90%... Why not choose that one?"  
 
 <div style="text-align: justify">
 Well, if it would have a precision of 90% and have values of the other metrics comparable to those of XGBoost, we would've obviously chosen that model. However, the reason it wasn't chosen is because it has a F1 score and recall of ... close to 0%. What this concretely means is that the model will only recognize "viral" videos about 0% of the time, which isn't ideal at all. 
 </div>
+<br>
 
 - "Okay, so what can you concretely do with your chosen model?"  
 
 <div style="text-align: justify">
 Well, we could look at the importance of the coefficients and see which ones are most important. We could also try and look at different combination of features and see if the model predicts the video to go viral. For example, we can look at whether a channel with 10'000 subscribers, outputting a two minute gaming video with a 40 character long title with 3 insulting words and a whole bunch of tags in its 400 character description could have a chance to go viral. However, as we clearly miss some very important features, we unfortunately get very poor results when trying to predict a video's virality. 
 </div>
+<br>
 
 - "So, if we find some kind of way to encode video content, the socio-political context and the thumbnail, we should get a great model ??"
 
