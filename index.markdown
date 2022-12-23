@@ -58,7 +58,7 @@ Like we saw previously, we do not have access to major aspects of the videos, su
 
 These features were the ones we selected to build our model. After having tried a few ones, the most promising one was a XGBoost model. The results can be summarized in the following confusion matrix:
 
-[Insert confusion matrix]
+<img src="Figures/confusion_matrix.png" alt="Confusion Matrix" width="200"/>
 
 - Accuracy : 95%
 - Precision : 65%
