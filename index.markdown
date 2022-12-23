@@ -1,9 +1,6 @@
 ---
 layout: default
 ---
-
-Who does not want to have the secret of creating YouTube videos that will be viewed by thousands or millions people around the globe ? Is there a secret recipe ? Is YouTube's algorithm breakable ? Let us try to answer these questions by bringing you through this webiste.
-
 # What is a viral video ?
 
 Our ultimate goal being to find outlier videos that made more views than others, we first have to define what makes a video viral. This question definitely has many possible answers as many factors come into play. Here are a few of them:
