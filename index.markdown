@@ -22,12 +22,24 @@ More specifically, our decision function is as follows:
 The details of how and why our function looks like this will be omitted for clarity purposes. Videos that satisfy this inequality will be tagged as viral. The value for $threshold$ was chosen so that we had a satisfiable rate of viral videos compared to non-viral ones. In our case, we chose $threshold$ as the 95%-quantile. Thus, 5% of the videos in the dataset are viral, the others are not.
 Note that due to limited computational resources, we had to work only on a subset of the total videos. 
 
-# How does the data look like ?
+# How does the data look like ? What makes a video viral ?
 
-Features: duration, category, title, description, etc
-(A lot of them have virality less than one)
+Each video is defined by a specific features. These include the title, the duration, the tags, the description and the number of subscribers at the release of the video. Note that those are the ones known before the release of the video. We also know its number of views, likes and comments but these are features that will come aftere the release of the video. We want to compare videos with features known before its release to maximize our chances to make it viral.
 
-We first had a look at the titles, as it is one of the first elements that we notice when seeing a video on Youtube. After some data cleaning (ponctuation, links, tokenisation, stopwords...) we have obtained for the non viral sample the following word cloud:
+In the following section, we will take a look at each feature and see if there is any statistical difference between viral videos and non-viral.
+
+## Titles
+We first had a look at the titles, as it is one of the first elements that we notice when seeing a video on Youtube. After some data cleaning (ponctuation, links, tokenisation, stopwords...) we can first compare their lengths.
+
+![Title lengths](Figures/titledisplot.png)
+
+A first remark is that title lengths cannot be longer than 100 characters, as we can see on the plot above. We see a trend for viral videos to be a bit shorter than non-viral ones. This is more rigourously compared with the following t-test:
+
+
+!!!
+
+
+Next, we can form word clouds for both of them. For the non viral sample, we got the following one:
 
 ![Wordcloud1](Figures/title_wordcloud3.png)
 
@@ -44,7 +56,41 @@ and for the viral sample:
 ![Wordcloud4](Figures/title_wordcloud_viral2.png)
 
 Fron this, we can see that frequent words specific to the viral sample include trendy topics such as 'prank', 'asmr', 'slime' or 'roblox'. It is not surprising to see words as 'lyrics', 'hit' or 'rhymes' which are related to music videos subject to be watched many times by the same viewers. 
-# What makes a video viral ?
+
+## Duration
+Another factor that comes in mind is the length of videos. A common thought is that viral videos are short. What does the data tell us ?
+
+![Video durations](Figures/durationdisplot.png)
+
+Again, we can see a clear precise mark at about 600 seconds = 10 minutes. Passing the 10-minute mark on YouTube videos is very important: they let creators put more ads on their videos. Creators thus often release videos of just about 10 minutes.
+
+
+!!!
+
+
+## Tags count
+What about hashtags ? Does putting a lot of them help having more views ?
+
+![Tags count](Figures/tagsdisplot.png)
+
+Definitely ! It is widely known that your videos can be seen by people that simply search for certain subjects. The data agrees ! Again, a t-test.
+
+!!!
+
+## Description length
+Is it useful to write huge descriptions to gain more views ? 
+
+![Tags count](Figures/description.png)
+
+It is apparently the case ! We see a hardstop at 5000 characters which is the maximum length of descriptions on YouTube. We definitely see that viral videos have longer descriptions, proven again with this test:
+
+!!!
+
+## Number of subscribers
+Finally, does already having a lot of subscribers help make your video go viral ?
+
+
+# Predicting virality of new videos
 
 This is the question we are all waiting for. Long story short: we do not really know, at least with the features in our dataset.
 
