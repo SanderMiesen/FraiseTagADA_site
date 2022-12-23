@@ -6,7 +6,7 @@ Who does not want to have the secret of creating YouTube videos that will be vie
 
 # What is a viral video ?
 
-How shall one define the virality of a video ? This question definitely has many possible answers as many factors come into play. Here are a few of them:
+Our ultimate goal being to find outlier videos that made more views than others, we first have to define what makes a video viral. This question definitely has many possible answers as many factors come into play. Here are a few of them:
 
 1.  The video has more than a certain number of views (ex. one million)
 1.  The video has more views than the channel's past month's average.
@@ -14,6 +14,13 @@ How shall one define the virality of a video ? This question definitely has many
 1.  The video has a better views/subscribers ratio than other ones.
 
 We went with the fourth definition in our work because it would pick videos mostly seen by non-subscribers. This would be explained by the fact that they were either recommended by the YouTube's algorithm or were manually searched for, which we thought was a good description of viral videos.
+
+More specifically, our decision function is as follows:
+
+$$\left(1 - \exp \left(-\frac{\log(views + 1)}{\log(subcribers + 1)} \right) + 0.055*\log_{10}(subscribers + 1) - 0.05 \right)^2.1 \geq threshold $$
+
+The details of how and why our function looks like this will be omitted for clarity purposes. Videos that satisfy this inequality will be tagged as viral. The value for $threshold$ was chosen so that we had a satisfiable rate of viral videos compared to non-viral ones. In our case, we chose $threshold$ as the 95%-quantile. Thus, 5% of the videos in the dataset are viral, the others are not.
+Note that due to limited computational resources, we had to work only on a subset of the total videos. 
 
 # How does the data look like ?
 
@@ -60,8 +67,6 @@ We could not get better results than this one for the reasons we described above
 # What should you do ?
 
 You learnt something while reading this datastory: that there is not a universal way to make your video go viral. Videos' virality depends on too many factors that we do not have in our datasets. Being able to make a viral video without content, just with a precise duration, category and title would disprove the Youtube's algorithm's efficiency. It is unfortunately not that simple to break it.
-
-
 
 
 ```
