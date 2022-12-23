@@ -6,21 +6,42 @@ Who does not want to have the secret of creating YouTube videos that will be vie
 
 # What is a viral video ?
 
-Our ultimate goal being to find outlier videos that made more views than others, we first have to define what makes a video viral. This question definitely has many possible answers as many factors come into play. Here are a few of them:
+Our ultimate goal being to find outlier videos that made more views than others, we first have to define what makes a video viral. This question definitely has many possible answers as many factors come into play. Here are a few of them: 
 
-1.  The video has more than a certain number of views (ex. one million)
-1.  The video has more views than the channel's past month's average.
-1.  The video has a better like/views ratio than other ones.
-1.  The video has a better views/subscribers ratio than other ones.
+1. The video has more than a certain number of views (ex. one million) 
+2. The video has more views than the channel’s past month’s average. 
+3. The video has a better like/views ratio than other ones. 
+4. The video has a better views/subscribers ratio than other ones. 
 
-We went with the fourth definition in our work because it would pick videos mostly seen by non-subscribers. This would be explained by the fact that they were either recommended by the YouTube's algorithm or were manually searched for, which we thought was a good description of viral videos.
+We went with the fourth definition in our work because it would pick videos mostly seen by non-subscribers. This would be explained by the fact that they were either recommended by the YouTube’s algorithm or were manually searched for, which we thought was a good description of viral videos. Here are more mathematical details on the way virality was defined.  
+Let’s first define some logic requirement :
 
-More specifically, our decision function is as follows:
+- The more views it gets, the more the video is viral.
+- Doing as many views as smaller channel is not considered equal success. Virality must decreases with subscribers.
+- You must always have a chance to make a viral video, the standards will simply not be the same.
+
+From the distributions of the number of views and number of subscribers we want to use log(views+1) and log(subs+1) transformations, so our first attempt will be the ratio ![ratio](Figures/ratio.PNG).
+
+![Virality0](Figures/virality0.png)
+
+It’s better but it’s clearly harder to be viral at high number of subscribers. Highest viralities seems to decrease in -log. Hence we compose with the decreasing exponential ‘exp(- . )’ to make them linear.
+
+![Virality1](Figures/virality1.png)
+
+It’s a success ! Now 1 – exp(-.) keeps the monotony (high virality = high value). Note that the values are generally between 0 and 1 since exp(-.) > 0 and the ratio is generally positive so exp(-.)<1.
+There is still bias, but this time it is linear so we just need to add a line to compensate. Graphical interpolation to find ax+b yields a=0.055 and b=0.05.
+
+![Virality2](Figures/virality2.png)
+
+![Virality3](Figures/virality3.png)
+
+We see that the data is still concentrated around high values (see heatmap) : let’s spread them around by taking it by the power 2.1 (another empirical value). Since they are between 0 and 1, their mean will decrease.
+
+![Virality4](Figures/virality4.png)
+
+We will hence use this formula in our analysis to define the success of a video. 
 
 ![LaTeX Equation](Figures/latex_equation.png)
-
-The details of how and why our function looks like this will be omitted for clarity purposes. Videos that satisfy this inequality will be tagged as viral. The value for $threshold$ was chosen so that we had a satisfiable rate of viral videos compared to non-viral ones. In our case, we chose $threshold$ as the 95%-quantile. Thus, 5% of the videos in the dataset are viral, the others are not.
-Note that due to limited computational resources, we had to work only on a subset of the total videos. 
 
 # How does the data look like ? What makes a video viral ?
 
@@ -80,7 +101,7 @@ Definitely ! It is widely known that your videos can be seen by people that simp
 ## Description length
 Is it useful to write huge descriptions to gain more views ? 
 
-![Tags count](Figures/description.png)
+![Description lengths](Figures/descriptiondisplot.png)
 
 It is apparently the case ! We see a hardstop at 5000 characters which is the maximum length of descriptions on YouTube. We definitely see that viral videos have longer descriptions, proven again with this test:
 
@@ -88,6 +109,10 @@ It is apparently the case ! We see a hardstop at 5000 characters which is the ma
 
 ## Number of subscribers
 Finally, does already having a lot of subscribers help make your video go viral ?
+
+![Subscribers count](Figures/subsdisplot.png)
+
+From this distribution
 
 
 # Predicting virality of new videos
